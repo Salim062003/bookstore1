@@ -28,8 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check if a new cover image is uploaded
     if (!empty($_FILES['cover']['tmp_name'])) {
-        $coverPath = 'covers/' . basename($_FILES['cover']['name']);
-        move_uploaded_file($_FILES['cover']['tmp_name'], $coverPath);
+        $coversFolder = 'covers/';
+        $coverPath = $coversFolder . basename($_FILES['cover']['name']);
+
+        // Ensure the covers folder exists
+        if (!file_exists($coversFolder)) {
+            mkdir($coversFolder, 0777, true);
+        }
+
+        $uploaded = move_uploaded_file($_FILES['cover']['tmp_name'], $coverPath);
+        if (!$uploaded) {
+            echo "Failed to upload cover image.";
+            exit;
+        }
         $bookToEdit['cover'] = $coverPath;
     }
 
