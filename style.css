@@ -1,0 +1,49 @@
+.book-list {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 200px;
+}
+
+.book img {
+  width: 100%;
+  height: auto;
+}
+
+form.login-form,
+form.edit-form {
+  width: min(100%, 300px);
+  border: thin solid #ccc;
+  padding: 1em;
+  display: grid;
+  gap: 4px;
+}
+
+.edit-form .book-cover {
+  height: 250px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  margin-bottom: 1em;
+}
+
+.login-body,
+.edit-body,
+.category-body,
+.index-body {
+  display: grid;
+  place-items: center;
+}
+
+.category-list {
+  display: flex;
+  gap: 1em;
+  list-style: none;
+}
